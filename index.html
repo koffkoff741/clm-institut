@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clm Institut Geneva | Institut de Beauté Haut de Gamme à Genève | REGENX</title>
+<meta name="description" content="Clm Institut Geneva — Institut de beauté d'excellence à Genève. Reconstruction du poil, maquillage permanent, HydraFacial, REGENX. Rue du Lac 7, 1207 Genève.">
+<meta name="keywords" content="institut de beauté Genève, reconstruction du poil Genève, maquillage permanent Genève, microblading Genève, REGENX Genève">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --noir: #0d0a0b;
+    --noir-soft: #161214;
+    --rose-fonce: #c0446e;
+    --rose-vif: #e8567e;
+    --rose-pale: #f2b8cb;
+    --or-rose: #d4956a;
+    --creme: #f9f0ec;
+    --blanc: #ffffff;
+    --gris-clair: #e8e0e3;
+    --texte-sombre: #2a1a20;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-script: 'Dancing Script', cursive;
+    --font-body: 'Montserrat', sans-serif;
+    --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    --ombre: 0 20px 80px rgba(192, 68, 110, 0.15);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--noir);
+    color: var(--creme);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--noir); }
+  ::-webkit-scrollbar-thumb { background: var(--rose-fonce); border-radius: 2px; }
+
+  /* UTILITAIRES */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  .container-wide { max-width: 1440px; margin: 0 auto; padding: 0 2rem; }
+
+  /* REVEAL ANIMATION */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-left.active { opacity: 1; transform: translateX(0); }
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-right.active { opacity: 1; transform: translateX(0); }
+
+  /* DELAY CLASSES */
+  .d1 { transition-delay: 0.1s; }
+  .d2 { transition-delay: 0.2s; }
+  .d3 { transition-delay: 0.3s; }
+  .d4 { transition-delay: 0.4s; }
+  .d5 { transition-delay: 0.5s; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+  }
+  nav.scrolled {
+    background: rgba(13, 10, 11, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(192, 68, 110, 0.2);
+    padding: 0.8rem 2rem;
+  }
+  .nav-logo {
+    font-family: var(--font-script);
+    font-size: 1.8rem;
+    color: var(--blanc);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--rose-vif); }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gris-clair);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--rose-vif); }
+  .nav-cta {
+    background: transparent;
+    border: 1px solid var(--rose-vif);
+    color: var(--rose-vif);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.5rem;
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  .nav-cta:hover {
+    background: var(--rose-vif);
+    color: var(--blanc);
+  }
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+  .burger span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--blanc);
+    transition: var(--transition);
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1800&q=80') center/cover no-repeat;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(13,10,11,0.92) 0%,
+      rgba(13,10,11,0.75) 40%,
+      rgba(192,68,110,0.25) 100%
+    );
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    padding: 8rem 2rem 4rem;
+    margin-left: 8vw;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rose-vif);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeSlideUp 1s 0.3s forwards;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--rose-vif);
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--blanc);
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeSlideUp 1s 0.5s forwards;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--rose-pale);
+  }
+  .hero h2 {
+    font-family: var(--font-body);
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: rgba(249,240,236,0.75);
+    max-width: 500px;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    opacity: 0;
+    animation: fadeSlideUp 1s 0.7s forwards;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeSlideUp 1s 0.9s forwards;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--rose-fonce);
+    color: var(--blanc);
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--rose-vif);
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-primary:hover::before { transform: translateX(0); }
+  .btn-primary span { position: relative; z-index: 1; }
+  .btn-ghost {
+    display: inline-block;
+    border: 1px solid rgba(249,240,236,0.35);
+    color: var(--creme);
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  .btn-ghost:hover {
+    border-color: var(--rose-pale);
+    color: var(--rose-pale);
+  }
+  .hero-stat-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    z-index: 2;
+    background: rgba(13,10,11,0.8);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(192,68,110,0.25);
+    padding: 1.2rem 0;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: clamp(2rem, 6vw, 6rem);
+    flex-wrap: wrap;
+  }
+  .hero-stat {
+    text-align: center;
+    opacity: 0;
+    animation: fadeSlideUp 1s 1.1s forwards;
+  }
+  .hero-stat strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--rose-pale);
+    line-height: 1;
+  }
+  .hero-stat span {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(249,240,236,0.55);
+  }
+
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ========== DOULEURS ========== */
+  .douleurs {
+    padding: 8rem 0;
+    background: var(--noir-soft);
+    position: relative;
+    overflow: hidden;
+  }
+  .douleurs::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(192,68,110,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .section-label {
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rose-vif);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .section-label::after {
+    content: '';
+    display: block;
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--rose-vif);
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--blanc);
+    margin-bottom: 1rem;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--rose-pale);
+  }
+  .douleurs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 4rem;
+  }
+  .douleurs-image {
+    position: relative;
+  }
+  .img-douleur {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    display: block;
+  }
+  .img-douleur-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(13,10,11,0.6));
+  }
+  .douleurs-content h2 { margin-bottom: 0.5rem; }
+  .douleurs-intro {
+    font-size: 0.9rem;
+    color: rgba(249,240,236,0.65);
+    margin-bottom: 2.5rem;
+    line-height: 1.9;
+  }
+  .douleur-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(192,68,110,0.15);
+  }
+  .douleur-item:last-child { border-bottom: none; }
+  .douleur-num {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 300;
+    color: rgba(192,68,110,0.25);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 50px;
+  }
+  .douleur-text h4 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--blanc);
+    margin-bottom: 0.4rem;
+  }
+  .douleur-text p {
+    font-size: 0.82rem;
+    color: rgba(249,240,236,0.6);
+    line-height: 1.7;
+  }
+
+  /* ========== SOLUTIONS ========== */
+  .solutions {
+    padding: 8rem 0;
+    background: var(--noir);
+    position: relative;
+    overflow: hidden;
+  }
+  .solutions-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 6rem;
+    align-items: center;
+  }
+  .solutions-text .section-title { margin-bottom: 1.5rem; }
+  .solutions-desc {
+    font-size: 0.88rem;
+    color: rgba(249,240,236,0.65);
+    line-height: 1.95;
+    margin-bottom: 2.5rem;
+  }
+  .methodo-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .methodo-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 0.82rem;
+    color: rgba(249,240,236,0.75);
+  }
+  .methodo-list li::before {
+    content: '✦';
+    color: var(--rose-vif);
+    flex-shrink: 0;
+    margin-top: 0.1em;
+    font-size: 0.6rem;
+  }
+  .solutions-visual {
+    position: relative;
+  }
+  .img-solutions {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .solutions-badge {
+    position: absolute;
+    bottom: -2rem;
+    left: -2rem;
+    width: 130px; height: 130px;
+    background: var(--rose-fonce);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+  }
+  .solutions-badge strong {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--blanc);
+    line-height: 1;
+  }
+  .solutions-badge span {
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+  }
+
+  /* ========== PRESTATIONS ========== */
+  .prestations {
+    padding: 8rem 0;
+    background: var(--noir-soft);
+  }
+  .prestations-header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  .prestations-header .section-label {
+    justify-content: center;
+  }
+  .prestations-header .section-label::after,
+  .prestations-header .section-label::before {
+    content: '';
+    display: block;
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--rose-vif);
+  }
+  .prestation-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .prestation-category {
+    border: 1px solid rgba(192,68,110,0.18);
+    overflow: hidden;
+    transition: border-color 0.4s ease;
+  }
+  .prestation-category:hover { border-color: rgba(192,68,110,0.5); }
+  .cat-header {
+    padding: 1.5rem 2.5rem;
+    background: rgba(192,68,110,0.08);
+    border-bottom: 1px solid rgba(192,68,110,0.18);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .cat-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+  .cat-header h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--blanc);
+    letter-spacing: 0.02em;
+  }
+  .cat-header .cat-tag {
+    margin-left: auto;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose-vif);
+    border: 1px solid rgba(192,68,110,0.4);
+    padding: 0.3rem 0.8rem;
+  }
+  .cat-body {
+    padding: 2rem 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .prestation-card {
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.03);
+    border-left: 2px solid transparent;
+    transition: var(--transition);
+  }
+  .prestation-card:hover {
+    background: rgba(192,68,110,0.08);
+    border-left-color: var(--rose-vif);
+  }
+  .prestation-card h4 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--blanc);
+    margin-bottom: 0.5rem;
+  }
+  .prestation-card p {
+    font-size: 0.77rem;
+    color: rgba(249,240,236,0.55);
+    line-height: 1.7;
+  }
+  .prestation-card .promo-tag {
+    display: inline-block;
+    margin-top: 0.6rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--rose-fonce);
+    color: var(--blanc);
+    padding: 0.2rem 0.6rem;
+  }
+
+  /* ========== PREUVES SOCIALES ========== */
+  .preuves {
+    padding: 8rem 0;
+    background: var(--noir);
+    overflow: hidden;
+  }
+  .preuves-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 4rem;
+  }
+  .preuves-header .section-title { margin-bottom: 0; }
+  .preuves-summary {
+    text-align: right;
+  }
+  .preuves-stars {
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
+    margin-bottom: 0.5rem;
+  }
+  .star { color: var(--or-rose); font-size: 1.2rem; }
+  .preuves-count {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--blanc);
+    line-height: 1;
+  }
+  .preuves-sub {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(249,240,236,0.5);
+  }
+  .avis-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .avis-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(192,68,110,0.15);
+    padding: 2rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .avis-card::before {
+    content: '"';
+    position: absolute;
+    top: -10px; right: 20px;
+    font-family: var(--font-display);
+    font-size: 8rem;
+    color: rgba(192,68,110,0.08);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .avis-card:hover {
+    border-color: rgba(192,68,110,0.45);
+    background: rgba(192,68,110,0.05);
+  }
+  .avis-stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 1rem;
+  }
+  .avis-stars .star { font-size: 0.8rem; }
+  .avis-text {
+    font-size: 0.84rem;
+    color: rgba(249,240,236,0.75);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+  .avis-author {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .avis-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--rose-fonce), var(--or-rose));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    color: var(--blanc);
+    flex-shrink: 0;
+  }
+  .avis-author-info strong {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--blanc);
+    letter-spacing: 0.05em;
+  }
+  .avis-author-info span {
+    font-size: 0.65rem;
+    color: rgba(249,240,236,0.45);
+  }
+  .salonkee-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 3.5rem;
+    padding: 1.2rem 2rem;
+    background: rgba(192,68,110,0.08);
+    border: 1px solid rgba(192,68,110,0.25);
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .salonkee-badge p {
+    font-size: 0.75rem;
+    color: rgba(249,240,236,0.7);
+  }
+  .salonkee-badge strong { color: var(--rose-pale); }
+
+  /* ========== INTENT STATEMENT ========== */
+  .intent {
+    padding: 8rem 0;
+    background: linear-gradient(135deg, #1a0a10 0%, #0d0a0b 50%, #14080e 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .intent::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(192,68,110,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .intent-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+  .intent-image-wrap { position: relative; }
+  .img-intent {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .intent-quote-card {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    width: 240px;
+    background: var(--noir);
+    border: 1px solid rgba(192,68,110,0.35);
+    padding: 1.5rem;
+  }
+  .intent-quote-card p {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--rose-pale);
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+  .intent-quote-card cite {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(249,240,236,0.45);
+    font-style: normal;
+  }
+  .intent-content .section-title { margin-bottom: 1.5rem; }
+  .intent-manifesto {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--rose-pale);
+    line-height: 1.8;
+    border-left: 2px solid var(--rose-fonce);
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .intent-desc {
+    font-size: 0.85rem;
+    color: rgba(249,240,236,0.65);
+    line-height: 1.95;
+    margin-bottom: 2.5rem;
+  }
+  .instagram-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    border: 1px solid rgba(192,68,110,0.5);
+    padding: 0.9rem 1.8rem;
+    text-decoration: none;
+    color: var(--creme);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: var(--transition);
+  }
+  .instagram-btn:hover {
+    background: rgba(192,68,110,0.15);
+    border-color: var(--rose-vif);
+  }
+  .instagram-btn svg {
+    width: 16px; height: 16px;
+    fill: var(--rose-vif);
+  }
+
+  /* ========== ABOUT ========== */
+  .about {
+    padding: 8rem 0;
+    background: var(--noir-soft);
+  }
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+  .about-content .section-title { margin-bottom: 1.5rem; }
+  .about-bio {
+    font-size: 0.88rem;
+    color: rgba(249,240,236,0.7);
+    line-height: 1.95;
+    margin-bottom: 2rem;
+  }
+  .about-signature {
+    font-family: var(--font-script);
+    font-size: 2.5rem;
+    color: var(--rose-pale);
+    margin-bottom: 2rem;
+  }
+  .about-values {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .about-val {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.82rem;
+    color: rgba(249,240,236,0.75);
+  }
+  .about-val-dot {
+    width: 6px; height: 6px;
+    background: var(--rose-vif);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .about-image-stack {
+    position: relative;
+  }
+  .img-about {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .about-image-accent {
+    position: absolute;
+    bottom: -1.5rem;
+    left: -1.5rem;
+    width: 160px; height: 160px;
+    object-fit: cover;
+    border: 4px solid var(--noir-soft);
+  }
+
+  /* ========== FAQ ========== */
+  .faq {
+    padding: 8rem 0;
+    background: var(--noir);
+  }
+  .faq-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .faq-header .section-label { justify-content: center; }
+  .faq-header .section-label::before,
+  .faq-header .section-label::after {
+    content: '';
+    display: block;
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--rose-vif);
+  }
+  .faq-list {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .faq-item {
+    border-bottom: 1px solid rgba(192,68,110,0.15);
+    overflow: hidden;
+  }
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    cursor: pointer;
+    text-align: left;
+    gap: 1rem;
+  }
+  .faq-question h4 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--blanc);
+    line-height: 1.4;
+  }
+  .faq-icon {
+    width: 28px; height: 28px;
+    border: 1px solid rgba(192,68,110,0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: var(--transition);
+    color: var(--rose-vif);
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--rose-fonce); border-color: var(--rose-fonce); color: var(--blanc); }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .faq-item.open .faq-answer { max-height: 300px; }
+  .faq-answer p {
+    padding: 0 0 1.5rem;
+    font-size: 0.84rem;
+    color: rgba(249,240,236,0.65);
+    line-height: 1.85;
+  }
+
+  /* ========== FINAL CTA ========== */
+  .final-cta {
+    padding: 10rem 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .final-cta-bg {
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1600&q=80') center/cover no-repeat;
+  }
+  .final-cta-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(13,10,11,0.88);
+  }
+  .final-cta-content {
+    position: relative;
+    z-index: 2;
+  }
+  .final-cta .section-label { justify-content: center; }
+  .final-cta .section-label::before,
+  .final-cta .section-label::after {
+    content: '';
+    display: block;
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--rose-vif);
+  }
+  .final-cta h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 300;
+    color: var(--blanc);
+    line-height: 1.1;
+    margin: 1.5rem auto 1rem;
+    max-width: 700px;
+  }
+  .final-cta h2 em { font-style: italic; color: var(--rose-pale); }
+  .final-cta p {
+    font-size: 0.9rem;
+    color: rgba(249,240,236,0.6);
+    margin-bottom: 3rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+  }
+  .cta-group {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-cta-large {
+    display: inline-block;
+    background: var(--rose-fonce);
+    color: var(--blanc);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 1.2rem 3rem;
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-cta-large::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--rose-vif);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-cta-large:hover::before { transform: scaleX(1); }
+  .btn-cta-large span { position: relative; z-index: 1; }
+  .btn-tel {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    border: 1px solid rgba(249,240,236,0.3);
+    color: var(--creme);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 1.2rem 2rem;
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  .btn-tel:hover {
+    border-color: var(--rose-pale);
+    color: var(--rose-pale);
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: #080608;
+    border-top: 1px solid rgba(192,68,110,0.2);
+    padding: 5rem 0 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.2fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+  .footer-brand .nav-logo {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+  .footer-brand p {
+    font-size: 0.8rem;
+    color: rgba(249,240,236,0.5);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    max-width: 280px;
+  }
+  .footer-socials {
+    display: flex;
+    gap: 0.8rem;
+  }
+  .social-link {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(192,68,110,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(249,240,236,0.6);
+    text-decoration: none;
+    font-size: 0.75rem;
+    transition: var(--transition);
+  }
+  .social-link:hover {
+    border-color: var(--rose-vif);
+    color: var(--rose-vif);
+    background: rgba(192,68,110,0.1);
+  }
+  .footer-col h5 {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rose-vif);
+    margin-bottom: 1.5rem;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+  .footer-col ul li a {
+    font-size: 0.8rem;
+    color: rgba(249,240,236,0.55);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .footer-col ul li a:hover { color: var(--rose-pale); }
+  .footer-hours table {
+    width: 100%;
+    font-size: 0.75rem;
+    border-collapse: collapse;
+  }
+  .footer-hours tr { border-bottom: 1px solid rgba(192,68,110,0.08); }
+  .footer-hours td {
+    padding: 0.45rem 0;
+    color: rgba(249,240,236,0.55);
+  }
+  .footer-hours td:last-child { text-align: right; color: rgba(249,240,236,0.35); }
+  .footer-hours tr.today td { color: var(--rose-pale); }
+  .footer-address {
+    font-size: 0.78rem;
+    color: rgba(249,240,236,0.5);
+    line-height: 1.7;
+  }
+  .footer-address a {
+    color: var(--rose-pale);
+    text-decoration: none;
+  }
+  .footer-address a:hover { text-decoration: underline; }
+  .footer-map {
+    margin-top: 1rem;
+    width: 100%;
+    height: 150px;
+    background: rgba(192,68,110,0.08);
+    border: 1px solid rgba(192,68,110,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .footer-map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: grayscale(50%) invert(90%) hue-rotate(160deg);
+    opacity: 0.7;
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(192,68,110,0.1);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-bottom p {
+    font-size: 0.7rem;
+    color: rgba(249,240,236,0.3);
+  }
+  .footer-bottom a {
+    color: rgba(249,240,236,0.3);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .footer-bottom a:hover { color: var(--rose-pale); }
+  .footer-seo {
+    font-size: 0.65rem;
+    color: rgba(249,240,236,0.2);
+    margin-top: 0.5rem;
+  }
+
+  /* MOBILE */
+  @media (max-width: 1024px) {
+    .douleurs-grid,
+    .solutions-inner,
+    .intent-inner,
+    .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .douleurs-image,
+    .solutions-visual,
+    .intent-image-wrap,
+    .about-image-stack { order: -1; }
+    .img-douleur, .img-solutions, .img-intent, .img-about { height: 400px; }
+    .avis-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .preuves-header { grid-template-columns: 1fr; text-align: left; }
+    .preuves-summary { text-align: left; }
+    .preuves-stars { justify-content: flex-start; }
+    .solutions-badge { bottom: 1rem; left: 1rem; }
+    .intent-quote-card { display: none; }
+    .about-image-accent { display: none; }
+    .nav-links { display: none; }
+    .burger { display: flex; }
+  }
+  @media (max-width: 768px) {
+    .hero-content { margin-left: 0; padding: 6rem 1.5rem 3rem; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .cat-body { grid-template-columns: 1fr; }
+    .hero-stat-bar { display: none; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Clm <span>Institut</span></a>
+  <ul class="nav-links">
+    <li><a href="#prestations">Prestations</a></li>
+    <li><a href="#avis">Avis</a></li>
+    <li><a href="#about">Institut</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="https://salonkee.ch/salon/clm-institut?lang=fr" target="_blank" class="nav-cta">Réserver</a>
+  <button class="burger" id="burgerBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ========== 1. HERO ========== -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Institut de Beauté Haut de Gamme · Genève</div>
+    <h1>Révélez la <em>beauté</em><br>qui sommeille<br>en vous</h1>
+    <h2>Reconstruction du poil, maquillage permanent & soins d'exception. Rue du Lac 7, 1207 Genève.</h2>
+    <div class="hero-ctas">
+      <a href="https://salonkee.ch/salon/clm-institut?lang=fr" target="_blank" class="btn-primary"><span>Réserver ma séance</span></a>
+      <a href="https://www.instagram.com/clm.institut/" target="_blank" class="btn-ghost">Découvrir l'univers</a>
+    </div>
+  </div>
+  <div class="hero-stat-bar">
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>105+</strong><span>Avis 5 étoiles</span></div>
+      <div class="hero-stat d1"><strong>REGENX</strong><span>Reconstruction du Poil</span></div>
+      <div class="hero-stat d2"><strong>8+</strong><span>Spécialités</span></div>
+      <div class="hero-stat d3"><strong>Genève</strong><span>Rue du Lac 7</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 2. IMPACT INVISIBLE & DOULEURS ========== -->
+<section class="douleurs reveal" id="douleurs">
+  <div class="container">
+    <div class="douleurs-grid">
+      <div class="douleurs-image reveal-left">
+        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=900&q=80" alt="Soins sourcils Genève" class="img-douleur img-portfolio">
+        <div class="img-douleur-overlay"></div>
+      </div>
+      <div class="douleurs-content reveal-right">
+        <div class="section-label">Ce que vous ressentez</div>
+        <h2 class="section-title">Quand le miroir<br>ne reflète plus<br><em>qui vous êtes</em></h2>
+        <p class="douleurs-intro">Sourcils clairsemés, poils qui ne repoussent plus, teint qui terne. Ces micro-détails que vous seul(e) remarquez — et qui pourtant changent tout.</p>
+        <div class="douleur-item">
+          <div class="douleur-num">01</div>
+          <div class="douleur-text">
+            <h4>La perte fait partie du passé</h4>
+            <p>Sourcils effacés par le temps, cheveux fragilisés, barbes incomplètes. La reconstruction du poil est une science — et CLM Institut en est spécialiste certifiée.</p>
+          </div>
+        </div>
+        <div class="douleur-item">
+          <div class="douleur-num">02</div>
+          <div class="douleur-text">
+            <h4>Chaque matin une décision de moins</h4>
+            <p>Le maquillage permanent libère de la routine. Sourcils redessinés, lèvres rehaussées — réveillez-vous exactement comme vous êtes.</p>
+          </div>
+        </div>
+        <div class="douleur-item">
+          <div class="douleur-num">03</div>
+          <div class="douleur-text">
+            <h4>Un soin qui va au fond</h4>
+            <p>Votre peau mérite plus qu'une surface. HydraFacial, Microneedling, Plasma Pen — des protocoles cliniques au service de votre éclat naturel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 3. SOLUTIONS & MÉTHODOLOGIE ========== -->
+<section class="solutions reveal" id="methode">
+  <div class="container">
+    <div class="solutions-inner">
+      <div class="solutions-text reveal-left">
+        <div class="section-label">La signature CLM</div>
+        <h2 class="section-title">Une méthode.<br>Des résultats.<br><em>Un serment.</em></h2>
+        <p class="solutions-desc">
+          Chez CLM Institut, chaque protocole est pensé comme une architecture : précision technique, matériaux d'exception, et une écoute qui transforme la prestation en expérience. Charlotte et son équipe ne font pas que soigner — elles reconstruisent, révèlent, ancrent.
+        </p>
+        <ul class="methodo-list">
+          <li>Consultation personnalisée & diagnostic de la peau et du poil</li>
+          <li>Protocoles REGENX — reconstruction capillaire, barbe & sourcils</li>
+          <li>Techniques de dermopigmentation dernier génération</li>
+          <li>Soins visage & corps cliniques (HydraFacial, STARVAC, EMT)</li>
+          <li>Suivi post-séance inclus & accompagnement long terme</li>
+          <li>Matériaux certifiés, hygiène chirurgicale</li>
+        </ul>
+      </div>
+      <div class="solutions-visual reveal-right">
+        <img src="/mnt/user-data/uploads/clm.jpg" alt="Charlotte — Clm Institut Geneva" class="img-solutions img-hero" onerror="this.src='https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=800&q=80'">
+        <div class="solutions-badge">
+          <strong>5★</strong>
+          <span>+105 avis Salonkee</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 4. PRESTATIONS ========== -->
+<section class="prestations reveal" id="prestations">
+  <div class="container">
+    <div class="prestations-header">
+      <div class="section-label">Nos spécialités</div>
+      <h2 class="section-title">L'art du soin<br><em>élevé au rang</em><br>de précision</h2>
+    </div>
+    <div class="prestation-categories">
+
+      <!-- REGENX -->
+      <div class="prestation-category reveal d1">
+        <div class="cat-header">
+          <div class="cat-icon">💥</div>
+          <h3>REGENX — Reconstruction du Poil</h3>
+          <span class="cat-tag">Signature CLM</span>
+        </div>
+        <div class="cat-body">
+          <div class="prestation-card">
+            <h4>Reconstruction Sourcils</h4>
+            <p>Technique exclusive REGENX de redensification et redessin du tracé sourcilier. Résultats naturels, durables, sur-mesure selon votre morphologie.</p>
+          </div>
+          <div class="prestation-card">
+            <h4>Reconstruction Cheveux</h4>
+            <p>Protocole de stimulation capillaire avancé. Traitement des zones clairsemées, fragilisées ou en perte de densité. Science du poil au service de votre confiance.</p>
+          </div>
+          <div class="prestation-card">
+            <h4>Reconstruction Barbe</h4>
+            <p>Redessiner, densifier et structurer la barbe. Pour les hommes qui exigent la précision dans chaque détail de leur visage.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAQUILLAGE PERMANENT + TATOUAGE ESTHÉTIQUE -->
+      <div class="prestation-category reveal d2">
+        <div class="cat-header">
+          <div class="cat-icon">🖋</div>
+          <h3>Maquillage Permanent & Tatouage</h3>
+          <span class="cat-tag">Dermopigmentation</span>
+        </div>
+        <div class="cat-body">
+          <div class="prestation-card">
+            <h4>Sourcils Powder Brow / Microblading</h4>
+            <p>Dessin au pinceau ou poil à poil — un rendu photographique adapté à votre style. Durée : 12 à 24 mois selon la peau.</p>
+          </div>
+          <div class="prestation-card">
+            <h4>Lèvres & Eyeliner</h4>
+            <p>Contour rehaussé, volume optique, regard défini. La précision d'un crayon permanent — sans effort quotidien.</p>
+          </div>
+          <div class="prestation-card">
+            <h4>Tatouage Artistique</h4>
+            <p>Charlotte est également artiste tatoueur. Un trait devient plusieurs — la satisfaction de nos clients en témoigne.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOINS VISAGE & CORPS -->
+      <div class="prestation-category reveal d3">
+        <div class="cat-header">
+          <div class="cat-icon">✦</div>
+          <h3>Soins Visage & Corps</h3>
+          <span class="cat-tag">Protocoles Cliniques</span>
+        </div>
+        <div class="cat-body">
+          <div class="prestation-card">
+            <h4>HydraFacial & Microneedling</h4>
+            <p>Nettoyage en profondeur, infusion d'actifs et bio-stimulation dermique. Le duo référence pour un teint régénéré et une texture lissée.</p>
+          </div>
+          <div class="prestation-card">
+            <h4>Plasma Pen</h4>
+            <p>Resurfaçage cutané par plasma froid. Remodelage des paupières, correction des ridules, traitement des marques — sans incision.</p>
+          </div>
+          <div class="prestation-card">
+            <h4>DS V-Line</h4>
+            <p>Redéfinition de l'ovale du visage par technologies de pointe. Lifting non invasif pour un contour facial sculpté et rajeuni.</p>
+          </div>
+          <div class="prestation-card">
+            <h4>STARVAC & Body Shape EMT</h4>
+            <p>Drainage lymphatique intensif et remodelage musculaire électromagnétique. Silhouette redessinée, tissu tonifié, énergie retrouvée.</p>
+          </div>
+          <div class="prestation-card">
+            <h4>Blanchiment Dentaire</h4>
+            <p>Protocole LED professionnel pour un sourire lumineux. Résultat immédiat, indolore, jusqu'à 8 teintes de différence.</p>
+          </div>
+          <div class="prestation-card">
+            <h4>Rehaussement de Cils</h4>
+            <p>Lift et teinture sur cils naturels. Un regard ouvert et intense sans mascara — jusqu'à 8 semaines de résultat.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ONGLES & PÉDICURE -->
+      <div class="prestation-category reveal d4">
+        <div class="cat-header">
+          <div class="cat-icon">💅</div>
+          <h3>Nails Geneva by Sara & Pédicure</h3>
+          <span class="cat-tag">@nailsgeneva_</span>
+        </div>
+        <div class="cat-body">
+          <div class="prestation-card">
+            <h4>Nails Geneva by Sara</h4>
+            <p>Pose, extension, nail art et entretien des ongles par Sara, experte en beauté des mains. Retrouvez-la sur Instagram : <strong>@nailsgeneva_</strong></p>
+          </div>
+          <div class="prestation-card">
+            <h4>Pédicure Professionnelle</h4>
+            <p>Soin complet des pieds — souplesse, beauté et bien-être. Vernis semi-permanent ou classique, finitions irréprochables.</p>
+          </div>
+          <div class="prestation-card">
+            <h4>Forfait Mains + Pieds ✨</h4>
+            <p>Offre combinée pour une beauté du bout des doigts jusqu'aux orteils.</p>
+            <span class="promo-tag">Valable du 01.04 au 30.04</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /prestation-categories -->
+
+    <div style="text-align:center; margin-top: 3.5rem;" class="reveal">
+      <a href="https://salonkee.ch/salon/clm-institut?lang=fr" target="_blank" class="btn-primary"><span>Voir tous les tarifs & réserver</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5. PREUVES SOCIALES ========== -->
+<section class="preuves reveal" id="avis">
+  <div class="container">
+    <div class="preuves-header">
+      <div>
+        <div class="section-label">Ce qu'elles disent</div>
+        <h2 class="section-title">L'excellence se<br>mesure à <em>leur</em><br>sourire</h2>
+      </div>
+      <div class="preuves-summary reveal">
+        <div class="preuves-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="preuves-count">105+</div>
+        <p class="preuves-sub">Avis vérifiés sur Salonkee</p>
+      </div>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card reveal d1">
+        <div class="avis-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="avis-text">Excellente institut, Charlotte est à l'écoute de ses clientes. Je viens régulièrement et je repars toujours satisfaite !</p>
+        <div class="avis-author">
+          <div class="avis-avatar">E</div>
+          <div class="avis-author-info">
+            <strong>Edelweiss Guide</strong>
+            <span>Cliente fidèle</span>
+          </div>
+        </div>
+      </div>
+      <div class="avis-card reveal d2">
+        <div class="avis-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="avis-text">Super salon ! Le lieu est cute, propre et très agréable, avec un accueil toujours chaleureux et professionnel. On s'y sent tout de suite à l'aise.</p>
+        <div class="avis-author">
+          <div class="avis-avatar">J</div>
+          <div class="avis-author-info">
+            <strong>Juliette R.</strong>
+            <span>Cliente Clm Institut</span>
+          </div>
+        </div>
+      </div>
+      <div class="avis-card reveal d3">
+        <div class="avis-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="avis-text">Service à la clientèle superbe, accueil de qualité, souriante. Je vous conseille le soin micro needling ! Un tatouage s'est transformé en plusieurs — vous pouvez y aller les yeux fermés ! 🥰</p>
+        <div class="avis-author">
+          <div class="avis-avatar">M</div>
+          <div class="avis-author-info">
+            <strong>Marybel Fregosi</strong>
+            <span>Cliente fidèle</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="salonkee-badge reveal">
+      <span style="font-size:1.4rem;">⭐</span>
+      <p>Retrouvez <strong>+105 avis 5 étoiles</strong> sur Salonkee — la plateforme de référence pour les instituts de beauté suisses.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 6. INTENT STATEMENT ========== -->
+<section class="intent reveal" id="univers">
+  <div class="container">
+    <div class="intent-inner">
+      <div class="intent-image-wrap reveal-left">
+        <img src="/mnt/user-data/uploads/clminsitut.webp" alt="Clm Institut Geneva — Mur de fleurs" class="img-intent img-hero" onerror="this.src='https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80'">
+        <div class="intent-quote-card">
+          <p>"Chaque cliente repart avec quelque chose qu'elle ne peut plus enlever : sa confiance."</p>
+          <cite>Charlotte, fondatrice CLM Institut</cite>
+        </div>
+      </div>
+      <div class="intent-content reveal-right">
+        <div class="section-label">Notre raison d'être</div>
+        <h2 class="section-title">Beauté intense.<br><em>Impact</em><br>silencieux.</h2>
+        <p class="intent-manifesto">
+          "Nous ne maquillons pas. Nous ne couvrons pas. Nous révélons ce qui était là, endormi, attendant d'être vu."
+        </p>
+        <p class="intent-desc">
+          CLM Institut est né d'une conviction : la beauté n'est pas une performance, c'est une reconnaissance de soi. Charlotte a fondé cet espace intime au cœur de Genève pour offrir des soins qui transforment — et qui durent. Chaque geste est précis. Chaque séance, singulière.
+        </p>
+        <a href="https://www.instagram.com/clm.institut/" target="_blank" class="instagram-btn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Découvrir l'univers CLM
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 7. ABOUT ========== -->
+<section class="about reveal" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-content reveal-left">
+        <div class="section-label">L'artiste derrière l'institut</div>
+        <h2 class="section-title">Charlotte —<br><em>Architecte</em><br>de votre beauté</h2>
+        <p class="about-bio">
+          Fondatrice de CLM Institut Geneva, Charlotte est spécialiste en reconstruction du poil, dermopigmentation et soins esthétiques avancés. Sa double expertise — artiste tatoueur et praticienne en soins du visage — fait de chaque consultation un moment à la fois technique et humain.
+        </p>
+        <p class="about-bio">
+          Formée aux dernières techniques REGENX de reconstruction capillaire et sourcilière, elle exerce dans un cadre pensé pour la sérénité : un espace intime, soigné jusqu'aux détails, où chaque cliente se sent exactement à sa place.
+        </p>
+        <div class="about-signature">Charlotte</div>
+        <div class="about-values">
+          <div class="about-val"><div class="about-val-dot"></div>Écoute clinique & sensibilité artistique</div>
+          <div class="about-val"><div class="about-val-dot"></div>Protocoles certifiés & matériaux premium</div>
+          <div class="about-val"><div class="about-val-dot"></div>Résultats naturels, durables, sur-mesure</div>
+          <div class="about-val"><div class="about-val-dot"></div>Membre de la communauté beauté genevoise depuis des années</div>
+        </div>
+        <a href="https://salonkee.ch/salon/clm-institut?lang=fr" target="_blank" class="btn-primary"><span>Prendre rendez-vous</span></a>
+      </div>
+      <div class="about-image-stack reveal-right">
+        <img src="/mnt/user-data/uploads/clm.jpg" alt="Charlotte — CLM Institut Geneva spécialiste reconstruction du poil" class="img-about" onerror="this.src='https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=700&q=80'">
+        <img src="/mnt/user-data/uploads/clminsitut.webp" alt="CLM Institut Geneva — Espace beauté" class="about-image-accent" onerror="this.src='https://images.unsplash.com/photo-1560066984-138dadb4c035?w=300&q=80'">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 8. FAQ ========== -->
+<section class="faq reveal" id="faq">
+  <div class="container">
+    <div class="faq-header">
+      <div class="section-label">Questions fréquentes</div>
+      <h2 class="section-title">Tout ce que vous<br>voulez savoir<br><em>avant votre séance</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <h4>Combien de temps durent les résultats du maquillage permanent ?</h4>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer"><p>Le maquillage permanent dure en général entre 12 et 24 mois selon votre type de peau, votre mode de vie et la zone traitée. Un rendez-vous de retouche est recommandé après 4 à 6 semaines pour parfaire le résultat, puis annuellement pour le maintenir. Charlotte vous guide sur la fréquence idéale lors de votre consultation.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <h4>Qu'est-ce que la méthode REGENX pour la reconstruction du poil ?</h4>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer"><p>REGENX est une signature exclusive de CLM Institut Geneva combinant plusieurs protocoles de stimulation capillaire : bio-stimulation du follicule pileux, injections nutritives, et techniques manuelles de micro-implantation. Le résultat est une repousse naturelle et durable, adaptée aux sourcils clairsemés, aux chevelures fragilisées et aux barbes incomplètes.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <h4>Les soins sont-ils douloureux ?</h4>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer"><p>La plupart des soins proposés à CLM Institut sont très peu ou pas douloureux. Pour les techniques de dermopigmentation et le tatouage, une crème anesthésiante est appliquée avant la séance pour maximiser votre confort. Charlotte prend le temps d'adapter chaque protocole à votre seuil de tolérance et vous informe à chaque étape.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <h4>Comment prendre rendez-vous et quels sont les horaires ?</h4>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer"><p>La réservation en ligne se fait via Salonkee (lien sur ce site) ou par téléphone au +41 78 821 18 18. CLM Institut est ouvert du mardi au vendredi de 10h à 19h et le samedi de 11h à 17h. L'institut est fermé le dimanche. Les horaires peuvent être adaptés certains jours fériés — consultez Salonkee pour les disponibilités en temps réel.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <h4>Que dois-je faire avant et après une séance de microneedling ou HydraFacial ?</h4>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer"><p>Avant la séance, évitez l'exposition solaire intense, les acides (AHA/BHA) et les traitements abrasifs dans les 48h précédentes. Après la séance, une légère rougeur est normale et disparaît en 24h. Hydratez bien votre peau, appliquez un SPF 50 et évitez le maquillage pendant 24h. Charlotte vous remet une fiche de recommandations personnalisées après chaque soin.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 9. FINAL CTA ========== -->
+<section class="final-cta reveal" id="reservation">
+  <div class="final-cta-bg"></div>
+  <div class="container">
+    <div class="final-cta-content">
+      <div class="section-label">Votre transformation commence ici</div>
+      <h2>Prenez rendez-vous<br><em>dès aujourd'hui</em></h2>
+      <p>Rue du Lac 7, 1207 Genève. Du mardi au samedi. Chaque séance est unique — comme vous.</p>
+      <div class="cta-group">
+        <a href="https://salonkee.ch/salon/clm-institut?lang=fr" target="_blank" class="btn-cta-large"><span>✦ Réserver ma séance en ligne</span></a>
+        <a href="tel:+41788211818" class="btn-tel">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+          +41 78 821 18 18
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">Clm <span>Institut</span></a>
+        <p>Institut de beauté haut de gamme à Genève. Spécialistes en reconstruction du poil, maquillage permanent et soins esthétiques d'excellence. La beauté intense à portée de main.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/clm.institut/" target="_blank" class="social-link" aria-label="Instagram CLM Institut">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://salonkee.ch/salon/clm-institut?lang=fr" target="_blank" class="social-link" aria-label="Salonkee CLM Institut">★</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="#prestations">Prestations</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#univers">Notre univers</a></li>
+          <li><a href="#about">L'Institut</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="https://salonkee.ch/salon/clm-institut?lang=fr" target="_blank">Réservation</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-hours">
+        <h5>Horaires</h5>
+        <table>
+          <tr><td>Mardi</td><td>10:00–19:00</td></tr>
+          <tr><td>Mercredi</td><td>10:00–19:00</td></tr>
+          <tr><td>Jeudi</td><td>10:00–19:00</td></tr>
+          <tr><td>Vendredi</td><td>10:00–19:00</td></tr>
+          <tr><td>Samedi</td><td>11:00–17:00</td></tr>
+          <tr><td>Dimanche</td><td style="color: rgba(249,240,236,0.25)">Fermé</td></tr>
+          <tr><td>Lundi</td><td style="color: rgba(249,240,236,0.25)">Fermé</td></tr>
+        </table>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact & Adresse</h5>
+        <address class="footer-address" style="font-style:normal;">
+          <p>Rue du Lac 7<br>1207 Genève, Suisse</p>
+          <br>
+          <p><a href="tel:+41788211818">+41 78 821 18 18</a></p>
+          <br>
+          <p><a href="https://salonkee.ch/salon/clm-institut?lang=fr" target="_blank">Réserver en ligne →</a></p>
+          <br>
+          <p><a href="https://www.instagram.com/clm.institut/" target="_blank">@clm.institut</a></p>
+        </address>
+        <div class="footer-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2762.4624699898497!2d6.155!3d46.202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDbCsDEyJzA3LjIiTiA2wrAwOScxOC4wIkU!5e0!3m2!1sfr!2sch!4v1"
+            title="CLM Institut Geneva - Rue du Lac 7 1207 Genève"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        <p>© 2025 CLM Institut Geneva — Institut de Beauté Genève. Tous droits réservés.</p>
+        <p class="footer-seo">Institut de beauté Genève · Reconstruction du poil Genève · Maquillage permanent Genève · Microblading Genève · REGENX Genève · Sourcils Genève · Soins visage Genève · HydraFacial Genève</p>
+      </div>
+      <div style="display:flex; gap:1.5rem;">
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">CGV</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // NAV SCROLL
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // REVEAL ON SCROLL
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  // FAQ TOGGLE
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // BURGER MENU (mobile — simple toggle)
+  const burger = document.getElementById('burgerBtn');
+  const navLinks = document.querySelector('.nav-links');
+  if (burger && navLinks) {
+    burger.addEventListener('click', () => {
+      const visible = navLinks.style.display === 'flex';
+      navLinks.style.cssText = visible
+        ? 'display:none'
+        : 'display:flex; flex-direction:column; position:fixed; top:65px; left:0; right:0; background:rgba(13,10,11,0.98); padding:2rem; gap:1.5rem; z-index:999; border-bottom:1px solid rgba(192,68,110,0.3);';
+    });
+  }
+</script>
+</body>
+</html>
